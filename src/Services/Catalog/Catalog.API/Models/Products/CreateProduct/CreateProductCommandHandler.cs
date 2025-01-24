@@ -7,7 +7,7 @@ namespace Catalog.API.Models.Products.CreateProduct
     public record CreateProductResult(Guid Id);
     internal class CreateProductCommandHandler : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
-        public Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
+        public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
             //1.-en este apartado crearemos el producto desde el command object
             Product producto = new Product
@@ -20,7 +20,8 @@ namespace Catalog.API.Models.Products.CreateProduct
             };
             //2.-guardamos en base de datos
             //3.-regresamos  el CreateProductResult result
-            throw new NotImplementedException();
+            return new CreateProductResult(Guid.NewGuid());
+            
         }
     }
 }
