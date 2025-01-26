@@ -7,7 +7,7 @@ builder.Services.AddMediatR(config =>
     config.RegisterServicesFromAssembly(typeof(Program).Assembly);
 });
 var app = builder.Build();
-///
+///se construye el middleware de carter 
 app.MapCarter();
 
 app.Run();
