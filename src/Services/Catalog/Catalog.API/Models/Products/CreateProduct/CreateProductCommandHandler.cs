@@ -20,6 +20,9 @@ namespace Catalog.API.Models.Products.CreateProduct
                 Price = command.Price,
             };
             //2.-guardamos en base de datos
+            session.Store(producto);
+            //pesistimos los datos en la base de datos de PostGreSQL
+            await session.SaveChangesAsync(cancellationToken);
             //3.-regresamos  el CreateProductResult result
             return new CreateProductResult(Guid.NewGuid());
             
