@@ -1,7 +1,4 @@
-﻿using BuildingBlocks.CQRS;
-using Marten;
-
-namespace Catalog.API.Models.Products.CreateProduct
+﻿namespace Catalog.API.Models.Products.CreateProduct
 {
 
     public record CreateProductCommand(string Name, List<string> Category, string Description, string ImageFile, decimal Price): ICommand<CreateProductResult>;
