@@ -10,7 +10,7 @@ builder.Services.AddMediatR(config =>
 builder.Services.AddMarten(opt =>
 {
     opt.Connection(builder.Configuration.GetConnectionString("Database")!);
-});
+}).UseLightweightSessions();
 
 var app = builder.Build();
 ///se construye el middleware de carter 
