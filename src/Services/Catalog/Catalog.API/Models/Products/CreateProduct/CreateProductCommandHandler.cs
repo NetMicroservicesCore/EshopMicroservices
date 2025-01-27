@@ -23,8 +23,8 @@ namespace Catalog.API.Models.Products.CreateProduct
             session.Store(producto);
             //pesistimos los datos en la base de datos de PostGreSQL
             await session.SaveChangesAsync(cancellationToken);
-            //3.-regresamos  el CreateProductResult result
-            return new CreateProductResult(Guid.NewGuid());
+            //3.-regresamos  el CreateProductResult result es decir regresamos el id del producto
+            return new CreateProductResult(producto.Id);
             
         }
     }
