@@ -2,7 +2,14 @@
 
 namespace Catalog.API.Models.Products.CreateProduct
 {
-
+    /// <summary>
+    /// record es un comando especial para guardar datos introducida en net 9, especialmente diseñada para mantener datos inmutables.
+    /// </summary>
+    /// <param name="Name"></param>
+    /// <param name="Category"></param>
+    /// <param name="Description"></param>
+    /// <param name="ImageFile"></param>
+    /// <param name="Price"></param>
     public record CreateProductRequest(string Name, List<string> Category, string Description, string ImageFile, decimal Price);
     
     public record CreateProductResponse(Guid id);
