@@ -23,6 +23,7 @@ namespace Catalog.API.Models.Products.GetProducts
         {
             logger.LogInformation("GetProductsQueryHandler.Hanlde llamado con {@Query}", query);
             var products = await session.Query<Product>().ToListAsync(cancellationToken);
+            return new GetProductsResult(products);
         }
     }
 }
