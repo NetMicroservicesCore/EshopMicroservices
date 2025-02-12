@@ -19,7 +19,7 @@ namespace Catalog.API.Models.Products.GetProducts
         (IDocumentSession session, ILogger<GetProductsQueryHandler>logger)
         : IQueryHandler<GetProductsQuery, GetProductsResult>
     {
-        public async Task<GetProductsResult> Handle(GetProductsQuery request, CancellationToken cancellationToken)
+        public async Task<GetProductsResult> Handle(GetProductsQuery query, CancellationToken cancellationToken)
         {
             logger.LogInformation("GetProductsQueryHandler.Hanlde llamado con {@Query}", query);
             var products = await session.Query<Product>().ToListAsync(cancellationToken);
