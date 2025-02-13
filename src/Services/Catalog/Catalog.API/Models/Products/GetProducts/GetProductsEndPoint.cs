@@ -8,8 +8,8 @@ namespace Catalog.API.Models.Products.GetProducts
         {
             app.MapGet("/products", async (ISender sender) =>
             {
-
                 var result = await sender.Send(new GetProductsQuery());
+                var response = result.Adapt<GetProductsResponse>();
             });
         }
     }
