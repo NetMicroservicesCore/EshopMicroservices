@@ -24,4 +24,3 @@ namespace Catalog.API.Models.Products.UpdateProducts
         }
     }
 }
-pleto 
