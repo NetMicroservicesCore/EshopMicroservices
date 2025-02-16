@@ -4,11 +4,14 @@ namespace Catalog.API.Models.Products.DeleteProduct
     public record DeleteProductCommand(Guid Id):ICommand<DeleteProductResult>;
 
     public record DeleteProductResult(bool IsSuccess);
-    internal class DeleteProductCommandHandler : ICommandHandler<DeleteProductCommand, DeleteProductResult>
+    internal class DeleteProductCommandHandler(IDocumentSession session,ILogger<DeleteProductCommandHandler>logger) : ICommandHandler<DeleteProductCommand, DeleteProductResult>
     {
-        public Task<DeleteProductResult> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
+        public async Task<DeleteProductResult> Handle(DeleteProductCommand command, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            logger.LogInformation("DeleteProductCommandHandler.Handle llamado con {@Command}", command);
+            session.Delete<Product>(command.Id);
+            await session.SaveChangesAsync(cancellationToken);
+            return new DeleteProductResult(true);
         }
     }
 }
