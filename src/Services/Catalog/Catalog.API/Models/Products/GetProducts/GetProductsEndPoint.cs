@@ -1,5 +1,5 @@
 ﻿
-using OpenTelemetry.Trace;
+//using OpenTelemetry.Trace;
 
 namespace Catalog.API.Models.Products.GetProducts
 {
