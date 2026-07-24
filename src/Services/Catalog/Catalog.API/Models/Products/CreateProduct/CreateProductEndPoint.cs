@@ -12,7 +12,7 @@ namespace Catalog.API.Models.Products.CreateProduct
     /// <param name="Price"></param>
     public record CreateProductRequest(string Name, List<string> Category, string Description, string ImageFile, decimal Price);
     
-    public record CreateProductResponse(Guid id);
+    public record CreateProductResponse(Guid Id);
     public class CreateProductEndPoint : ICarterModule
     {
         /// <summary>
@@ -32,7 +32,7 @@ namespace Catalog.API.Models.Products.CreateProduct
                 ///almacenamos la respuesta de crear producto  y asi obtener los resultados obtenidos
                 var response = result.Adapt<CreateProductResponse>();
                 //creamos  el metodo que se encarga de devolver una respuesta
-                return Results.Created($"/products/{response.id}", response);
+                return Results.Created($"/products/{response.Id}", response);
             })
                 .WithName("CreateProduct")
                 .Produces<CreateProductResponse>(StatusCodes.Status201Created)
